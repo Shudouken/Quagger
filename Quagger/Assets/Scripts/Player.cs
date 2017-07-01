@@ -17,7 +17,6 @@ public class Player : MonoBehaviour {
     private SpriteRenderer sprite;
     private AudioSource sfx;
     private bool in_water = false;
-    private bool on_sand  = false;
 
     private bool invincible = false;
     private Vector2 start;
@@ -95,11 +94,6 @@ public class Player : MonoBehaviour {
     public void setInWater(bool b)
     {
         in_water = b;
-    }
-
-    public void setOnSand(bool b)
-    {
-        on_sand = b;
     }
 
     private void FixedUpdate()
