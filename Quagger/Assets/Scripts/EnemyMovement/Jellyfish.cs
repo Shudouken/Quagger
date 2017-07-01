@@ -8,7 +8,7 @@ public class Jellyfish : MonoBehaviour {
     Rigidbody2D rigid;
     float speed = 1;
     Vector3 spawnerPosition;
-    FishSpawner fishSpawner;
+    JellyfishSpawner fishSpawner;
     bool facingLeft = true;
     bool floating = true;
 
@@ -21,7 +21,7 @@ public class Jellyfish : MonoBehaviour {
         floatingEndPosition = new Vector2(transform.position.x, transform.position.y - 1.5f);
     }
 
-    public void Construct(float speed, Vector3 position, FishSpawner spawner, bool left)
+    public void Construct(float speed, Vector3 position, JellyfishSpawner spawner, bool left)
     {
         this.speed = speed;
         spawnerPosition = position;
@@ -31,7 +31,16 @@ public class Jellyfish : MonoBehaviour {
 
     void FixedUpdate()
     {
-        float factor = facingLeft ? 3 : -3;
+        float factor = facingLeft ? -3f : 3f;
+
+        if (facingLeft)
+        {
+            factor = -3;
+        }
+        else
+        {
+            factor = 3;
+        }
 
         float step = speed * Time.deltaTime;
 
