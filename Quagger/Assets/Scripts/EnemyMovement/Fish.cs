@@ -44,4 +44,12 @@ public class Fish : MonoBehaviour {
         //transform.position = spawnerPosition;
         fishSpawner.fishOutOfBoard.Add(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player"))
+            return;
+
+        collision.GetComponent<Player>().takeDamage();
+    }
 }

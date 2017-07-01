@@ -21,21 +21,20 @@ public class BGM : MonoBehaviour {
 
     private void changeSound(Scene previousScene, Scene newScene)
     {
-        int pos = bgm.timeSamples;
-
         if (newScene.name.Contains("2"))
-            setClip(level_sea, pos);
+            StartCoroutine(setClip(level_sea));
         else if (newScene.name.Contains("Title"))
-            setClip(title, pos);
+            StartCoroutine(setClip(title));
         else
-            setClip(level_ground, pos);
+            StartCoroutine(setClip(level_ground));
     }
 
-    private void setClip(AudioClip clip, int pos)
+    IEnumerator setClip(AudioClip clip)
     {
+        //wait for current song to loop
+        yield return new WaitForSeconds(Mathf.Max(bgm.clip.length-bgm.time -0.08f, 0.0f));
+        bgm.Pause();
         Debug.Log("Switching bgm to " + clip.name);
-        //bgm.Pause();
-        bgm.timeSamples = pos;
         bgm.clip = clip;
         bgm.Play();
     }
