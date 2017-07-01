@@ -13,5 +13,11 @@ public class Start : MonoBehaviour {
             PlayerPrefs.SetInt("ContinueCount", 0);
         }
 
+        if (Input.GetButtonUp("Select"))
+        {
+            if(SceneManager.GetActiveScene().buildIndex == 5)
+                SceneManager.LoadScene("Highscore");
+        }
+
 	}
 }
