@@ -35,6 +35,7 @@ public class BGM : MonoBehaviour {
         }
         else if (newScene.name.Contains("Win"))
         {
+            bgm.volume = 0.15f;
             setSong(win);
             bgm.loop = false;
         }
