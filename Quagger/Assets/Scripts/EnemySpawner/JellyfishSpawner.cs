@@ -53,6 +53,7 @@ public class JellyfishSpawner : MonoBehaviour {
                 }
                 position = new Vector3(transform.position.x - factor, transform.position.y, transform.position.z);
             }
+            /*
             GameObject fishObject = Instantiate(fish, position, transform.rotation);
                 
             if (fishObject.GetComponent<Jellyfish>() != null)
@@ -66,16 +67,30 @@ public class JellyfishSpawner : MonoBehaviour {
             {
                 Vector3 scale = new Vector3(fishObject.transform.localScale.x, -fishObject.transform.localScale.y, fishObject.transform.localScale.z);
                 fishObject.transform.localScale = scale;
-            }
+            }*/
+            StartCoroutine(SpawnRandom(position));
             count++;
         }
 
     }
 
-    IEnumerator SpawnRandom()
+    IEnumerator SpawnRandom(Vector3 position)
     {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(0,1);
+        yield return new WaitForSeconds(UnityEngine.Random.Range(0f,1f));
+        GameObject fishObject = Instantiate(fish, position, transform.rotation);
 
+        if (fishObject.GetComponent<Jellyfish>() != null)
+        {
+            fishObject.GetComponent<Jellyfish>().Construct(speed + UnityEngine.Random.Range(0, 1), transform.position, this, facingLeft);
+        }
+
+        fishObject.transform.parent = gameObject.transform;
+
+        if (!facingLeft)
+        {
+            Vector3 scale = new Vector3(fishObject.transform.localScale.x, -fishObject.transform.localScale.y, fishObject.transform.localScale.z);
+            fishObject.transform.localScale = scale;
+        }
     }
     void Update()
     {
