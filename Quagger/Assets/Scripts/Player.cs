@@ -7,15 +7,19 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
     public Rigidbody2D rigid;
-    private float speed = 0.15f;
     public Sprite standing;
     public Sprite swimming;
+    public AudioClip walking_wood;
+    public AudioClip walking_sand;
+    public AudioClip swimming_splash;
 
+    private float speed = 0.15f;
     private Text timer;
     private Text hearts;
     private SpriteRenderer sprite;
+    private AudioSource sfx;
     private bool in_water = false;
-
+    private bool on_sand  = false;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +27,7 @@ public class Player : MonoBehaviour {
         timer = GameObject.Find("Timer").GetComponent<Text>();
         hearts = GameObject.Find("Hearts").GetComponent<Text>();
         sprite = GetComponent<SpriteRenderer>();
+        sfx = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -35,22 +40,29 @@ public class Player : MonoBehaviour {
         hearts.text = new System.String('l', PlayerSingleton.getInstance().hearts);
 
         if (in_water)
+        {
             sprite.sprite = swimming;
+            sfx.clip = swimming_splash;
+        }
         else
+        {
             sprite.sprite = standing;
 
-        Vector2 moveDirection = rigid.velocity;
-        if (moveDirection != Vector2.zero)
-        {
-            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            Debug.Log(angle);
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            if (on_sand)
+                sfx.clip = walking_sand;
+            else
+                sfx.clip = walking_wood;
         }
     }
 
     public void setInWater(bool b)
     {
         in_water = b;
+    }
+
+    public void setOnSand(bool b)
+    {
+        on_sand = b;
     }
 
     private void FixedUpdate()
@@ -64,6 +76,9 @@ public class Player : MonoBehaviour {
         {
             float angle = Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            if(!sfx.isPlaying)
+                sfx.PlayOneShot(sfx.clip);
         }
 
         rigid.position += move;
