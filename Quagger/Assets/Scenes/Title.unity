@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 387843291}
   - component: {fileID: 387843290}
   - component: {fileID: 387843289}
+  - component: {fileID: 387843292}
   m_Layer: 0
   m_Name: BGM
   m_TagString: Untagged
@@ -350,7 +351,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bf9b4082f0ec64c448eb1baf8749579b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fe9c5a5eb2652ba459f9b4c95e27520d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -434,6 +435,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &387843292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 387843288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c538c4fc92e46347a6b192b15d1fb9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 8300000, guid: fe9c5a5eb2652ba459f9b4c95e27520d, type: 3}
+  gameover: {fileID: 0}
+  win: {fileID: 0}
+  level_ground: {fileID: 8300000, guid: 88fbfa3b85f29e444bcefd5df1a8ec8a, type: 3}
+  level_sea: {fileID: 8300000, guid: 30fba42be9736ce469f5fddccd783005, type: 3}
 --- !u!1 &814306745
 GameObject:
   m_ObjectHideFlags: 0

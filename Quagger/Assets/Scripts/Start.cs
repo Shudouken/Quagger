@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class Start : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyUp("space"))
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Test");
 	}
 }
