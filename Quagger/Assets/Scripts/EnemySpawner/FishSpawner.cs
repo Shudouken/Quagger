@@ -38,7 +38,7 @@ public class FishSpawner : MonoBehaviour {
             while (count < fishCount)
             {
                 Vector3 position;
-                int factor = (3 * (fishCount + 1) * spawnPlaces + 3 + count * 3);
+                float factor = (3 * (fishCount + 1.5f) * spawnPlaces + 3 + count * 3);
 
                 if (!facingLeft)
                 {
@@ -128,7 +128,7 @@ public class FishSpawner : MonoBehaviour {
             count++;
             yield return new WaitForSeconds(timeBetweenSpawn);
         }
-        yield return new WaitForSeconds(timeBetweenSpawn);
+        yield return new WaitForSeconds(1.5f * timeBetweenSpawn);
         spawning = false;
     }
 }
