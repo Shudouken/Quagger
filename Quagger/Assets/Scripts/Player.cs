@@ -136,7 +136,7 @@ public class PlayerSingleton
 
     public void reset()
     {
-        time = 0.0f;
+        //time = 0.0f;
         hearts = 5;
     }
 

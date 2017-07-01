@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Magic : MonoBehaviour {
     bool active = false;
@@ -32,6 +33,7 @@ public class Magic : MonoBehaviour {
             {
                 GameObject.Find("Western").GetComponent<AudioSource>().PlayOneShot(ugh,1);
                 once = false;
+                StartCoroutine(win());
             }
         }
     }
@@ -42,5 +44,11 @@ public class Magic : MonoBehaviour {
         crab.GetComponent<Renderer>().enabled = true;
         yield return new WaitForSeconds(1.0f);
         active = true;
+    }
+
+    IEnumerator win()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("Win");
     }
 }
