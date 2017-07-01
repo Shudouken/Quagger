@@ -35,7 +35,10 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (PlayerSingleton.getInstance().hearts == 0)
+        {
+            PlayerPrefs.SetInt("Stage", SceneManager.GetActiveScene().buildIndex);
             SceneManager.LoadScene("Gameover");
+        }
 
         PlayerSingleton.getInstance().incrementTimer(Time.deltaTime);
         timer.text = PlayerSingleton.getInstance().displayTime();
@@ -63,13 +66,13 @@ public class Player : MonoBehaviour {
         invincible = true;
         rigid.position = start;
         rigid.rotation = 90;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.8f);
         invincible = false;
     }
 
     IEnumerator flicker()
     {
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 2; i++)
         { 
             yield return new WaitForSeconds(0.2f);
             sprite.enabled = false;
