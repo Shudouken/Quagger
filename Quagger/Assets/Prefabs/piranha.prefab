@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50613855732244302}
   - component: {fileID: 114770588937876004}
   - component: {fileID: 68980690563537058}
+  - component: {fileID: 114081908732294830}
   m_Layer: 0
   m_Name: piranha
   m_TagString: Untagged
@@ -101,6 +102,17 @@ EdgeCollider2D:
   - {x: -0.6419629, y: 0.56942236}
   - {x: -0.5941963, y: 0.6774069}
   - {x: -0.39832976, y: 0.8870317}
+--- !u!114 &114081908732294830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1038139865245962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe80be8b0925794fa2e888a10a97031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114770588937876004
 MonoBehaviour:
   m_ObjectHideFlags: 1
