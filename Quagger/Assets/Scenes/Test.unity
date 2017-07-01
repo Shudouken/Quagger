@@ -4497,31 +4497,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
-    - target: {fileID: 114914491585802438, guid: b3ada0748690af34d80ff078b647de70,
-        type: 2}
-      propertyPath: walking_wood
-      value: 
-      objectReference: {fileID: 8300000, guid: 6059595d160de2649b66c00514d165de, type: 3}
-    - target: {fileID: 114914491585802438, guid: b3ada0748690af34d80ff078b647de70,
-        type: 2}
-      propertyPath: walking_floor
-      value: 
-      objectReference: {fileID: 8300000, guid: 73c7ea8471afda24aa9461da3c61a7eb, type: 3}
-    - target: {fileID: 114914491585802438, guid: b3ada0748690af34d80ff078b647de70,
-        type: 2}
-      propertyPath: splash
-      value: 
-      objectReference: {fileID: 8300000, guid: 98ee8f3170c56794890893a0d934a79b, type: 3}
-    - target: {fileID: 114914491585802438, guid: b3ada0748690af34d80ff078b647de70,
-        type: 2}
-      propertyPath: walking_sand
-      value: 
-      objectReference: {fileID: 8300000, guid: 73c7ea8471afda24aa9461da3c61a7eb, type: 3}
-    - target: {fileID: 114914491585802438, guid: b3ada0748690af34d80ff078b647de70,
-        type: 2}
-      propertyPath: swimming_splash
-      value: 
-      objectReference: {fileID: 8300000, guid: 98ee8f3170c56794890893a0d934a79b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3ada0748690af34d80ff078b647de70, type: 2}
   m_IsPrefabParent: 0

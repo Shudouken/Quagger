@@ -145,7 +145,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6059595d160de2649b66c00514d165de, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.607
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -326,9 +326,9 @@ MonoBehaviour:
   rigid: {fileID: 50918931017632218}
   standing: {fileID: 21300000, guid: c52fe373e6cd76a44b63eefb6157d4e3, type: 3}
   swimming: {fileID: 21300000, guid: 8e58406594dc8ff4f8b0dafca9ab1fca, type: 3}
-  walking_wood: {fileID: 0}
-  walking_floor: {fileID: 0}
-  splash: {fileID: 0}
+  walking_wood: {fileID: 8300000, guid: 6059595d160de2649b66c00514d165de, type: 3}
+  walking_sand: {fileID: 8300000, guid: 73c7ea8471afda24aa9461da3c61a7eb, type: 3}
+  swimming_splash: {fileID: 8300000, guid: 98ee8f3170c56794890893a0d934a79b, type: 3}
 --- !u!114 &114934833416383706
 MonoBehaviour:
   m_ObjectHideFlags: 1
