@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Magic : MonoBehaviour {
     bool active = false;
+    bool once = true;
     float speed = 12;
     GameObject crab;
+    public AudioClip ugh;
     // Use this for initialization
     void Start () {
         crab = GameObject.Find("crab");
@@ -25,6 +27,12 @@ public class Magic : MonoBehaviour {
         {
             GameObject.Find("cowboy").GetComponent<Renderer>().enabled = false;
             GameObject.Find("deadcowboy").GetComponent<Renderer>().enabled = true;
+
+            if(once)
+            {
+                GameObject.Find("Western").GetComponent<AudioSource>().PlayOneShot(ugh,0.7f);
+                once = false;
+            }
         }
     }
 
