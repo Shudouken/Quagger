@@ -215,8 +215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonball: {fileID: 1451143728628964, guid: 6d2541f83d8e1294aa7315fcb8342d2f, type: 2}
-  verticalDirection: -0.15
-  horizontalDirection: -0.15
+  verticalDirection: -0.2
+  horizontalDirection: -0.2
 --- !u!1 &409588801
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,8 +695,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonball: {fileID: 1451143728628964, guid: 6d2541f83d8e1294aa7315fcb8342d2f, type: 2}
-  verticalDirection: -0.15
-  horizontalDirection: 0.15
+  verticalDirection: -0.2
+  horizontalDirection: 0.2
 --- !u!1 &617453107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,8 +1567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonball: {fileID: 1451143728628964, guid: 6d2541f83d8e1294aa7315fcb8342d2f, type: 2}
-  verticalDirection: 0.15
-  horizontalDirection: -0.15
+  verticalDirection: 0.2
+  horizontalDirection: -0.2
 --- !u!1 &1607058868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,8 +2010,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonball: {fileID: 1451143728628964, guid: 6d2541f83d8e1294aa7315fcb8342d2f, type: 2}
-  verticalDirection: 0.15
-  horizontalDirection: 0.15
+  verticalDirection: 0.2
+  horizontalDirection: 0.2
 --- !u!1 &1881159000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,5 +2249,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonball: {fileID: 1451143728628964, guid: 6d2541f83d8e1294aa7315fcb8342d2f, type: 2}
-  verticalDirection: 0.15
-  horizontalDirection: 0.15
+  verticalDirection: 0.2
+  horizontalDirection: 0.2
