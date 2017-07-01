@@ -38,12 +38,4 @@ public class Cannonball : MonoBehaviour {
         //Destroy(gameObject);
         transform.position = cannonPosition;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Player"))
-            return;
-
-        collision.GetComponent<Player>().takeDamage();
-    }
 }
