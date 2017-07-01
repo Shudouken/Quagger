@@ -22,6 +22,7 @@ public class BGM : MonoBehaviour {
     private void changeSound(Scene previousScene, Scene newScene)
     {
         bgm.loop = true;
+        StopAllCoroutines();
 
         if (newScene.name.Contains("2"))
             StartCoroutine(setClip(level_sea));
@@ -33,7 +34,10 @@ public class BGM : MonoBehaviour {
             bgm.loop = false;
         }
         else if (newScene.name.Contains("Win"))
+        {
             setSong(win);
+            bgm.loop = false;
+        }
         else if (newScene.name.Contains("Cutscene"))
             bgm.Pause();
         else

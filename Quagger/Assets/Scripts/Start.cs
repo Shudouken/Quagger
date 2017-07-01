@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Start : MonoBehaviour {
 	void Update () {
-        if (Input.GetKeyUp("space"))
+        if (Input.GetButtonUp("Submit"))
             SceneManager.LoadScene("Stage 1");
 	}
 }

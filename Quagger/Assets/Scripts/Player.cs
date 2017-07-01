@@ -40,7 +40,8 @@ public class Player : MonoBehaviour {
             SceneManager.LoadScene("Gameover");
         }
 
-        PlayerSingleton.getInstance().incrementTimer(Time.deltaTime);
+        if(SceneManager.GetActiveScene().buildIndex != 5)
+            PlayerSingleton.getInstance().incrementTimer(Time.deltaTime);
         timer.text = PlayerSingleton.getInstance().displayTime();
         hearts.text = new System.String('l', PlayerSingleton.getInstance().hearts);
 
