@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Start : MonoBehaviour {
+public class Resume : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyUp("space"))
-            SceneManager.LoadScene("Stage 1");
+            SceneManager.LoadScene(PlayerPrefs.GetInt("Stage"));
 	}
 }

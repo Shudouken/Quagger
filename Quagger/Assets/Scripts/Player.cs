@@ -35,7 +35,10 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (PlayerSingleton.getInstance().hearts == 0)
+        {
+            PlayerPrefs.SetInt("Stage", SceneManager.GetActiveScene().buildIndex);
             SceneManager.LoadScene("Gameover");
+        }
 
         PlayerSingleton.getInstance().incrementTimer(Time.deltaTime);
         timer.text = PlayerSingleton.getInstance().displayTime();
