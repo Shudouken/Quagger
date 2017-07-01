@@ -31,7 +31,7 @@ public class Magic : MonoBehaviour {
 
             if(once)
             {
-                GameObject.Find("Western").GetComponent<AudioSource>().PlayOneShot(ugh,1);
+                GameObject.Find("Western").GetComponent<AudioSource>().PlayOneShot(ugh,10);
                 once = false;
                 StartCoroutine(win());
             }
