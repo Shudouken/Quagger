@@ -637,8 +637,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fish: {fileID: 1370647294180262, guid: 667d2d7832bdf2b45baf252aeeb7bcc4, type: 2}
   speed: 0.06
-  fishCount: 1
-  timeBetweenSpawn: 2
+  fishCount: 2
+  timeBetweenSpawn: 0.75
   facingLeft: 0
   fishOutOfBoard: []
 --- !u!1 &1030084059
