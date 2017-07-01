@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: {fileID: 8300000, guid: fe9c5a5eb2652ba459f9b4c95e27520d, type: 3}
-  gameover: {fileID: 0}
+  gameover: {fileID: 8300000, guid: 67cc60e9a19e99e45bbb35ee5d60c657, type: 3}
   win: {fileID: 0}
   level_ground: {fileID: 8300000, guid: 88fbfa3b85f29e444bcefd5df1a8ec8a, type: 3}
   level_sea: {fileID: 8300000, guid: 30fba42be9736ce469f5fddccd783005, type: 3}

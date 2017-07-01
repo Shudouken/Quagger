@@ -29,22 +29,32 @@ public class Fish : MonoBehaviour {
         if (facingLeft)
         {
             oldPos.x -= speed;
+            if(oldPos.x <= -20)
+            {
+                fishSpawner.fishOutOfBoard.Add(gameObject);
+                gameObject.SetActive(false);
+            }
         }
         else
         {
             oldPos.x += speed;
+            if (oldPos.x >= 20)
+            {
+                fishSpawner.fishOutOfBoard.Add(gameObject);
+                gameObject.SetActive(false);
+            }
         }
         rigid.position = oldPos;
 
     }
-
+    /*
     private void OnBecameInvisible()
     {
         //Destroy(gameObject);
         //transform.position = spawnerPosition;
         fishSpawner.fishOutOfBoard.Add(gameObject);
     }
-
+    **/
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player"))
