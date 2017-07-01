@@ -1,21 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
     public Rigidbody2D rigid;
     public float speed = 1;
 
+    private Text timer;
+    private Text hearts;
+
 	// Use this for initialization
 	void Start () {
         PlayerSingleton.getInstance().reset();
-	}
+        timer = GameObject.Find("Timer").GetComponent<Text>();
+        hearts = GameObject.Find("Hearts").GetComponent<Text>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
         PlayerSingleton.getInstance().incrementTimer(Time.deltaTime);
-	}
+        timer.text = PlayerSingleton.getInstance().displayTime();
+        hearts.text = new System.String('l', PlayerSingleton.getInstance().hearts);
+
+        if (PlayerSingleton.getInstance().hearts == 0)
+            SceneManager.LoadScene("Gameover");
+    }
 
     private void FixedUpdate()
     {
