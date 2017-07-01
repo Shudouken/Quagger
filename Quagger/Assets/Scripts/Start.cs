@@ -17,6 +17,8 @@ public class Start : MonoBehaviour {
         {
             if(SceneManager.GetActiveScene().buildIndex == 5)
                 SceneManager.LoadScene("Highscore");
+            if(SceneManager.GetActiveScene().buildIndex == 0)
+                SceneManager.LoadScene("Leaderboard");
         }
 
 	}
