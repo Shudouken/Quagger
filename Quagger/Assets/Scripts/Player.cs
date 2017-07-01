@@ -42,8 +42,17 @@ public class Player : MonoBehaviour {
 
         if(SceneManager.GetActiveScene().buildIndex != 5)
             PlayerSingleton.getInstance().incrementTimer(Time.deltaTime);
+        else
+            PlayerPrefs.SetInt("ResetTime", 1);
+            
         timer.text = PlayerSingleton.getInstance().displayTime();
         hearts.text = new System.String('l', PlayerSingleton.getInstance().hearts);
+
+        if (PlayerPrefs.GetInt("ResetTime") > 0 && SceneManager.GetActiveScene().buildIndex != 5)
+        {
+            PlayerSingleton.getInstance().time = 0.0f;
+            PlayerPrefs.SetInt("ResetTime", 0);
+        }
 
         if (in_water)
             sprite.sprite = swimming;
@@ -58,6 +67,7 @@ public class Player : MonoBehaviour {
 
         PlayerSingleton.getInstance().lose1Heart();
         sfx.PlayOneShot(damage_snd);
+        PlayerPrefs.SetInt("KillCount", PlayerPrefs.GetInt("KillCount") + 1);
         StartCoroutine(respawn());
         StartCoroutine(flicker());
     }
@@ -67,13 +77,13 @@ public class Player : MonoBehaviour {
         invincible = true;
         rigid.position = start;
         rigid.rotation = 90;
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1.2f);
         invincible = false;
     }
 
     IEnumerator flicker()
     {
-        for(int i = 0; i < 2; i++)
+        for(int i = 0; i < 3; i++)
         { 
             yield return new WaitForSeconds(0.2f);
             sprite.enabled = false;
