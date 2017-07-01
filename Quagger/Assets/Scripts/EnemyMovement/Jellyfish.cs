@@ -33,15 +33,6 @@ public class Jellyfish : MonoBehaviour {
     {
         float factor = facingLeft ? -3f : 3f;
 
-        if (facingLeft)
-        {
-            factor = -3;
-        }
-        else
-        {
-            factor = 3;
-        }
-
         float step = speed * Time.deltaTime;
 
         if (floating)
@@ -58,9 +49,34 @@ public class Jellyfish : MonoBehaviour {
         else
         {
             rigid.position = Vector3.MoveTowards(rigid.position, swimmingEndPosition, step * 3);
-
+            /*
+            if (facingLeft && rigid.position.x <= -20)
+            {
+                //fishSpawner.fishOutOfBoard.Add(gameObject);
+                //gameObject.SetActive(false);
+                rigid.position = new Vector2(20, rigid.position.y);
+            }
+            if (!facingLeft && rigid.position.x >= 20)
+            {
+                //fishSpawner.fishOutOfBoard.Add(gameObject);
+                //gameObject.SetActive(false);
+                rigid.position = new Vector2(-20, rigid.position.y);
+            }
+            */
             if (rigid.position == swimmingEndPosition)
             {
+                if (facingLeft && rigid.position.x <= -20)
+                {
+                    //fishSpawner.fishOutOfBoard.Add(gameObject);
+                    //gameObject.SetActive(false);
+                    rigid.position = new Vector2(20, rigid.position.y);
+                }
+                if (!facingLeft && rigid.position.x >= 20)
+                {
+                    //fishSpawner.fishOutOfBoard.Add(gameObject);
+                    //gameObject.SetActive(false);
+                    rigid.position = new Vector2(-20, rigid.position.y);
+                }
                 floating = true;
                 floatingEndPosition = new Vector3(rigid.position.x, rigid.position.y - 1.5f);
 
