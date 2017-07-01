@@ -29,12 +29,14 @@ public class BGM : MonoBehaviour {
             StartCoroutine(setClip(title));
         else if (newScene.name.Contains("over"))
         {
-            bgm.Pause();
-            Debug.Log("Switching bgm to " + gameover.name);
-            bgm.clip = gameover;
-            bgm.Play();
+            setSong(gameover);
             bgm.loop = false;
-        }    
+        }
+        else if (newScene.name.Contains("Win"))
+        {
+            setSong(win);
+            bgm.loop = false;
+        }
         else
             StartCoroutine(setClip(level_ground));
     }
@@ -44,6 +46,11 @@ public class BGM : MonoBehaviour {
         //wait for current song to loop
         if(bgm.isPlaying)
             yield return new WaitForSeconds(Mathf.Max(bgm.clip.length-bgm.time -0.08f, 0.0f));
+        setSong(clip);
+    }
+
+    private void setSong(AudioClip clip)
+    {
         bgm.Pause();
         Debug.Log("Switching bgm to " + clip.name);
         bgm.clip = clip;
