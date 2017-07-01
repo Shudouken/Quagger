@@ -77,8 +77,7 @@ public class FishSpawner : MonoBehaviour {
         }
 
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (!spawning)
@@ -87,16 +86,6 @@ public class FishSpawner : MonoBehaviour {
             StartCoroutine(SpawnFish());
 
         }
-        /**
-        GameObject fishObject;
-        if (fishOutOfBoard.Count != 0)
-        {
-            fishObject = fishOutOfBoard[0];
-            fishObject.transform.position = transform.position;
-            fishOutOfBoard.RemoveAt(0);
-        }
-    */
-        // StartCoroutine(SpawnFish(UnityEngine.Random.Range(0f, 2f)));
     }
     
     IEnumerator SpawnFish()
@@ -116,7 +105,14 @@ public class FishSpawner : MonoBehaviour {
             else
             {
                 fishObject = Instantiate(fish, transform.position, transform.rotation);
-                fishObject.GetComponent<Fish>().Construct(speed, transform.position, this, facingLeft);
+                if(fishObject.GetComponent<Fish>() != null)
+                {
+                    fishObject.GetComponent<Fish>().Construct(speed, transform.position, this, facingLeft);
+                }
+                if (fishObject.GetComponent<Jellyfish>() != null)
+                {
+                    fishObject.GetComponent<Jellyfish>().Construct(speed, transform.position, this, facingLeft);
+                }
                 fishObject.transform.parent = gameObject.transform;
                 
                 if (!facingLeft)
