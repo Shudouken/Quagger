@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
     public Rigidbody2D rigid;
-    public float speed = 1;
+    private float speed = 0.15f;
     public Sprite standing;
     public Sprite swimming;
 
