@@ -39,5 +39,11 @@ public class Cannonball : MonoBehaviour {
         transform.position = cannonPosition;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player"))
+            return;
 
+        collision.GetComponent<Player>().takeDamage();
+    }
 }

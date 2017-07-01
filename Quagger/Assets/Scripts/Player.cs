@@ -9,9 +9,7 @@ public class Player : MonoBehaviour {
     public Rigidbody2D rigid;
     public Sprite standing;
     public Sprite swimming;
-    public AudioClip walking_wood;
-    public AudioClip walking_sand;
-    public AudioClip swimming_splash;
+    public AudioClip damage_snd;
 
     private float speed = 0.15f;
     private Text timer;
@@ -21,9 +19,13 @@ public class Player : MonoBehaviour {
     private bool in_water = false;
     private bool on_sand  = false;
 
+    private bool invincible = false;
+    private Vector2 start;
+
 	// Use this for initialization
 	void Start () {
         PlayerSingleton.getInstance().reset();
+        start = rigid.position;
         timer = GameObject.Find("Timer").GetComponent<Text>();
         hearts = GameObject.Find("Hearts").GetComponent<Text>();
         sprite = GetComponent<SpriteRenderer>();
@@ -40,18 +42,39 @@ public class Player : MonoBehaviour {
         hearts.text = new System.String('l', PlayerSingleton.getInstance().hearts);
 
         if (in_water)
-        {
             sprite.sprite = swimming;
-            sfx.clip = swimming_splash;
-        }
         else
-        {
             sprite.sprite = standing;
+    }
 
-            if (on_sand)
-                sfx.clip = walking_sand;
-            else
-                sfx.clip = walking_wood;
+    public void takeDamage()
+    {
+        if (invincible)
+            return;
+
+        PlayerSingleton.getInstance().lose1Heart();
+        sfx.PlayOneShot(damage_snd);
+        StartCoroutine(respawn());
+        StartCoroutine(flicker());
+    }
+
+    IEnumerator respawn()
+    {
+        invincible = true;
+        rigid.position = start;
+        rigid.rotation = 90;
+        yield return new WaitForSeconds(2);
+        invincible = false;
+    }
+
+    IEnumerator flicker()
+    {
+        for(int i = 0; i < 5; i++)
+        { 
+            yield return new WaitForSeconds(0.2f);
+            sprite.enabled = false;
+            yield return new WaitForSeconds(0.2f);
+            sprite.enabled = true;
         }
     }
 
