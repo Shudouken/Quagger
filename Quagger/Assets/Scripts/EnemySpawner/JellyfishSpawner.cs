@@ -34,7 +34,7 @@ public class JellyfishSpawner : MonoBehaviour {
         while (count < fishCount)
         {
             Vector3 position;
-            float factor = 10 * (count-1) + UnityEngine.Random.Range(0,4);
+            float factor = 7 * (count-1) + UnityEngine.Random.Range(0,4);
 
             if (!facingLeft)
             {
@@ -52,7 +52,7 @@ public class JellyfishSpawner : MonoBehaviour {
                 }
                 position = new Vector3(transform.position.x - factor, transform.position.y, transform.position.z);
             }
-            /*
+            
             GameObject fishObject = Instantiate(fish, position, transform.rotation);
                 
             if (fishObject.GetComponent<Jellyfish>() != null)
@@ -66,8 +66,8 @@ public class JellyfishSpawner : MonoBehaviour {
             {
                 Vector3 scale = new Vector3(fishObject.transform.localScale.x, -fishObject.transform.localScale.y, fishObject.transform.localScale.z);
                 fishObject.transform.localScale = scale;
-            }*/
-            StartCoroutine(SpawnRandom(position));
+            }
+            //StartCoroutine(SpawnRandom(position));
             count++;
         }
 

@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 50613855732244302}
   - component: {fileID: 114770588937876004}
   - component: {fileID: 68685413388029726}
-  - component: {fileID: 114319958345540292}
   m_Layer: 0
   m_Name: crab
   m_TagString: Untagged
@@ -126,17 +125,6 @@ EdgeCollider2D:
   - {x: -0.51309466, y: -0.360281}
   - {x: -0.7213074, y: -0.26713943}
   - {x: -0.83704984, y: -0.0274086}
---- !u!114 &114319958345540292
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1038139865245962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fe80be8b0925794fa2e888a10a97031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114770588937876004
 MonoBehaviour:
   m_ObjectHideFlags: 1
