@@ -30,7 +30,7 @@ public class Magic : MonoBehaviour {
 
             if(once)
             {
-                GameObject.Find("Western").GetComponent<AudioSource>().PlayOneShot(ugh,0.7f);
+                GameObject.Find("Western").GetComponent<AudioSource>().PlayOneShot(ugh,1);
                 once = false;
             }
         }
