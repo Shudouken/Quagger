@@ -77,13 +77,13 @@ public class Player : MonoBehaviour {
         invincible = true;
         rigid.position = start;
         rigid.rotation = 90;
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(0.8f);
         invincible = false;
     }
 
     IEnumerator flicker()
     {
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 2; i++)
         { 
             yield return new WaitForSeconds(0.2f);
             sprite.enabled = false;
