@@ -30,20 +30,33 @@ public class FishSpawner : MonoBehaviour {
     void startingFishSpawn()
     {
         int spawnPlaces = 0;
+        bool breakOut = false;
         
-        while (spawnPlaces <= 4)
+        while (spawnPlaces <= 3)
         {
             int count = 0;
             while (count < fishCount)
             {
                 Vector3 position;
+                int factor = (3 * (fishCount + 1) * spawnPlaces + 3 + count * 3);
+
                 if (!facingLeft)
                 {
-                    position = new Vector3(transform.position.x + (3 *  (fishCount+1) * spawnPlaces + 3 + count * 3), transform.position.y, transform.position.z);
+                    if(count == 0 && transform.position.x + factor >= 20)
+                    {
+                        breakOut = true;
+                        break;
+                    }
+                    position = new Vector3(transform.position.x + factor, transform.position.y, transform.position.z);
                 }
                 else
                 {
-                    position = new Vector3(transform.position.x - (3 * (fishCount + 1) * spawnPlaces + 3 + count * 3), transform.position.y, transform.position.z);
+                    if (count == 0 && transform.position.x - factor <= -20)
+                    {
+                        breakOut = true;
+                        break;
+                    }
+                    position = new Vector3(transform.position.x - factor, transform.position.y, transform.position.z);
                 }
                 GameObject fishObject = Instantiate(fish, position, transform.rotation);
                 fishObject.GetComponent<Fish>().Construct(speed, transform.position, this, facingLeft);
@@ -56,6 +69,10 @@ public class FishSpawner : MonoBehaviour {
                 }
                 count++;
             }
+            if (breakOut)
+            {
+                break;
+            }
             spawnPlaces++;
         }
 
@@ -64,13 +81,13 @@ public class FishSpawner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (spawning)
+        if (!spawning)
         {
             spawning = true;
             StartCoroutine(SpawnFish());
 
         }
-
+        /**
         GameObject fishObject;
         if (fishOutOfBoard.Count != 0)
         {
@@ -78,12 +95,13 @@ public class FishSpawner : MonoBehaviour {
             fishObject.transform.position = transform.position;
             fishOutOfBoard.RemoveAt(0);
         }
-
+    */
         // StartCoroutine(SpawnFish(UnityEngine.Random.Range(0f, 2f)));
     }
     
     IEnumerator SpawnFish()
     {
+        yield return new WaitForSeconds(timeBetweenSpawn);
         int count = 0;
         while(count < fishCount)
         {
@@ -91,6 +109,7 @@ public class FishSpawner : MonoBehaviour {
             if (fishOutOfBoard.Count != 0)
             {
                 fishObject = fishOutOfBoard[0];
+                fishObject.SetActive(true);
                 fishObject.transform.position = transform.position;
                 fishOutOfBoard.RemoveAt(0);
             }
@@ -109,7 +128,7 @@ public class FishSpawner : MonoBehaviour {
             count++;
             yield return new WaitForSeconds(timeBetweenSpawn);
         }
-        yield return new WaitForSeconds(1.5f * timeBetweenSpawn);
+        yield return new WaitForSeconds(timeBetweenSpawn);
         spawning = false;
     }
 }

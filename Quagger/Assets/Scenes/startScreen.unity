@@ -1689,7 +1689,7 @@ MonoBehaviour:
   fish: {fileID: 1370647294180262, guid: 667d2d7832bdf2b45baf252aeeb7bcc4, type: 2}
   speed: 0.015
   fishCount: 2
-  timeBetweenSpawn: 2.5
+  timeBetweenSpawn: 3.5
   facingLeft: 0
   fishOutOfBoard: []
 --- !u!1 &1259390024
@@ -2426,7 +2426,7 @@ MonoBehaviour:
   fish: {fileID: 1038139865245962, guid: 1c6223e46d97dc744bb46d7aaf2ef20f, type: 2}
   speed: 0.015
   fishCount: 3
-  timeBetweenSpawn: 2.5
+  timeBetweenSpawn: 3
   facingLeft: 1
   fishOutOfBoard: []
 --- !u!1 &1808646522
