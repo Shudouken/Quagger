@@ -83,6 +83,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4591888625308052}
+  - component: {fileID: 68342939216833178}
   m_Layer: 0
   m_Name: SharkPrefab
   m_TagString: Untagged
@@ -273,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1454337979504556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.152855, y: -2.4987278, z: 5}
+  m_LocalPosition: {x: 33.14602, y: -5.5807967, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4969023652570518}
@@ -421,6 +422,23 @@ EdgeCollider2D:
   - {x: -2.0479302, y: -0.9379102}
   - {x: -2.1366982, y: -0.7763859}
   - {x: -2.0535493, y: -0.45818007}
+--- !u!68 &68342939216833178
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1454337979504556}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
 --- !u!114 &114519082537080722
 MonoBehaviour:
   m_ObjectHideFlags: 1
