@@ -21,10 +21,20 @@ public class BGM : MonoBehaviour {
 
     private void changeSound(Scene previousScene, Scene newScene)
     {
+        bgm.loop = true;
+
         if (newScene.name.Contains("2"))
             StartCoroutine(setClip(level_sea));
         else if (newScene.name.Contains("Title"))
             StartCoroutine(setClip(title));
+        else if (newScene.name.Contains("over"))
+        {
+            bgm.Pause();
+            Debug.Log("Switching bgm to " + gameover.name);
+            bgm.clip = gameover;
+            bgm.Play();
+            bgm.loop = false;
+        }    
         else
             StartCoroutine(setClip(level_ground));
     }
@@ -32,7 +42,8 @@ public class BGM : MonoBehaviour {
     IEnumerator setClip(AudioClip clip)
     {
         //wait for current song to loop
-        yield return new WaitForSeconds(Mathf.Max(bgm.clip.length-bgm.time -0.08f, 0.0f));
+        if(bgm.isPlaying)
+            yield return new WaitForSeconds(Mathf.Max(bgm.clip.length-bgm.time -0.08f, 0.0f));
         bgm.Pause();
         Debug.Log("Switching bgm to " + clip.name);
         bgm.clip = clip;
