@@ -131,13 +131,13 @@ public class PlayerSingleton
     private PlayerSingleton()
     {
         time = 0.0f;
-        hearts = 3;
+        hearts = 5;
     }
 
     public void reset()
     {
         time = 0.0f;
-        hearts = 3;
+        hearts = 5;
     }
 
     public void lose1Heart()
