@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 4591888625308052}
   - component: {fileID: 68342939216833178}
   m_Layer: 0
-  m_Name: SharkPrefab
+  m_Name: shark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

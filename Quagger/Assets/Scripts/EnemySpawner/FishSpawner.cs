@@ -105,14 +105,8 @@ public class FishSpawner : MonoBehaviour {
             else
             {
                 fishObject = Instantiate(fish, transform.position, transform.rotation);
-                if(fishObject.GetComponent<Fish>() != null)
-                {
-                    fishObject.GetComponent<Fish>().Construct(speed, transform.position, this, facingLeft);
-                }
-                if (fishObject.GetComponent<Jellyfish>() != null)
-                {
-                    fishObject.GetComponent<Jellyfish>().Construct(speed, transform.position, this, facingLeft);
-                }
+                fishObject.GetComponent<Fish>().Construct(speed, transform.position, this, facingLeft);
+               
                 fishObject.transform.parent = gameObject.transform;
                 
                 if (!facingLeft)
