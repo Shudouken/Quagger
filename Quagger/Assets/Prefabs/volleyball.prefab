@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50574275486905456}
   - component: {fileID: 114449965462219578}
   - component: {fileID: 58832628806088844}
-  - component: {fileID: 114356824644755616}
+  - component: {fileID: 114049247383624684}
   m_Layer: 0
   m_Name: volleyball
   m_TagString: Untagged
@@ -79,7 +79,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.43
---- !u!114 &114356824644755616
+--- !u!114 &114049247383624684
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
