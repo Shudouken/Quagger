@@ -7,18 +7,14 @@ public class Shark : MonoBehaviour {
 
     public List<GameObject> waypoints;
 
-    Rigidbody2D rigid;
     float speed = 5;
 
-    GameObject actualWaypoint;
     GameObject nextWaypoint;
 
     int actualIndex = 0;
 
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
-        actualWaypoint = waypoints[0];
         nextWaypoint = waypoints[1];
     }
    

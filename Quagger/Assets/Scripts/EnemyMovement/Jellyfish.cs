@@ -7,8 +7,6 @@ public class Jellyfish : MonoBehaviour {
 
     Rigidbody2D rigid;
     float speed = 1;
-    Vector3 spawnerPosition;
-    JellyfishSpawner fishSpawner;
     bool facingLeft = true;
     bool floating = true;
 
@@ -21,11 +19,9 @@ public class Jellyfish : MonoBehaviour {
         floatingEndPosition = new Vector2(transform.position.x, transform.position.y - 1.5f);
     }
 
-    public void Construct(float speed, Vector3 position, JellyfishSpawner spawner, bool left)
+    public void Construct(float speed, bool left)
     {
         this.speed = speed;
-        spawnerPosition = position;
-        fishSpawner = spawner;
         facingLeft = left;
     }
 
@@ -49,32 +45,14 @@ public class Jellyfish : MonoBehaviour {
         else
         {
             rigid.position = Vector3.MoveTowards(rigid.position, swimmingEndPosition, step * 3);
-            /*
-            if (facingLeft && rigid.position.x <= -20)
-            {
-                //fishSpawner.fishOutOfBoard.Add(gameObject);
-                //gameObject.SetActive(false);
-                rigid.position = new Vector2(20, rigid.position.y);
-            }
-            if (!facingLeft && rigid.position.x >= 20)
-            {
-                //fishSpawner.fishOutOfBoard.Add(gameObject);
-                //gameObject.SetActive(false);
-                rigid.position = new Vector2(-20, rigid.position.y);
-            }
-            */
             if (rigid.position == swimmingEndPosition)
             {
                 if (facingLeft && rigid.position.x <= -20)
                 {
-                    //fishSpawner.fishOutOfBoard.Add(gameObject);
-                    //gameObject.SetActive(false);
                     rigid.position = new Vector2(20, rigid.position.y);
                 }
                 if (!facingLeft && rigid.position.x >= 20)
                 {
-                    //fishSpawner.fishOutOfBoard.Add(gameObject);
-                    //gameObject.SetActive(false);
                     rigid.position = new Vector2(-20, rigid.position.y);
                 }
                 floating = true;

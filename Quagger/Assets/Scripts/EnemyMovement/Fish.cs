@@ -7,7 +7,6 @@ public class Fish : MonoBehaviour {
 
     Rigidbody2D rigid;
     float speed = 1;
-    Vector3 spawnerPosition;
     FishSpawner fishSpawner;
     bool facingLeft = true;
 
@@ -16,10 +15,9 @@ public class Fish : MonoBehaviour {
         rigid = GetComponent<Rigidbody2D>();
     }
 
-    public void Construct(float speed, Vector3 position, FishSpawner spawner, bool left)
+    public void Construct(float speed, FishSpawner spawner, bool left)
     {
         this.speed = speed;
-        spawnerPosition = position;
         fishSpawner = spawner;
         facingLeft = left;
     }

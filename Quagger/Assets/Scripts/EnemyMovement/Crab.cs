@@ -7,7 +7,6 @@ public class Crab : MonoBehaviour
 {
     public List<GameObject> waypoints;
 
-    Rigidbody2D rigid;
     public float speed = 1;
 
     GameObject nextWaypoint;
@@ -17,7 +16,6 @@ public class Crab : MonoBehaviour
 
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
         nextWaypoint = waypoints[1];
     }
 

@@ -59,7 +59,7 @@ public class FishSpawner : MonoBehaviour {
                     position = new Vector3(transform.position.x - factor, transform.position.y, transform.position.z);
                 }
                 GameObject fishObject = Instantiate(fish, position, transform.rotation);
-                fishObject.GetComponent<Fish>().Construct(speed, transform.position, this, facingLeft);
+                fishObject.GetComponent<Fish>().Construct(speed, this, facingLeft);
                 fishObject.transform.parent = gameObject.transform;
 
                 if (!facingLeft)
@@ -105,7 +105,7 @@ public class FishSpawner : MonoBehaviour {
             else
             {
                 fishObject = Instantiate(fish, transform.position, transform.rotation);
-                fishObject.GetComponent<Fish>().Construct(speed, transform.position, this, facingLeft);
+                fishObject.GetComponent<Fish>().Construct(speed, this, facingLeft);
                
                 fishObject.transform.parent = gameObject.transform;
                 
