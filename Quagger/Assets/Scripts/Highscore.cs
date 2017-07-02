@@ -93,7 +93,6 @@ public class Highscore : MonoBehaviour {
     {
         StreamReader file = File.OpenText(highfile);
         int count = 0;
-        string l = file.ReadLine();
         int rank = 1;
 
         bool newHighscore = false;
@@ -107,16 +106,18 @@ public class Highscore : MonoBehaviour {
                 inHighscore = true;
                 break;
             }
-            rank++;
 
+            Debug.Log("Test: " + score);
             string rankTime = score.Split(new string[] { "\\" }, StringSplitOptions.None)[1];
             float compareTime = getSecondsFromString(rankTime);
-            
+            Debug.Log("Test: " + time + " - " + compareTime);
             if (time < compareTime)
             {
                 newHighscore = true;
                 break;
             }
+
+            rank++;
 
         }
         file.Close();
