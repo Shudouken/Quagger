@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -64,7 +66,7 @@ public class Highscore : MonoBehaviour {
 
     void Update()
     {
-        if (cleared && Input.GetButtonUp("Submit"))
+        if (cleared && Input.GetKeyUp(KeyCode.Return))
         {
             name = input.text;
             if (name == "")
@@ -87,6 +89,25 @@ public class Highscore : MonoBehaviour {
     //return 1-9 if in top 9, else 0
     private int calcuateRank()
     {
+        StreamReader file = File.OpenText(highfile);
+        int count = 0;
+        string l = file.ReadLine();
+        
+
+        while (count++ < 9)
+        {
+            string score = file.ReadLine();
+            if (score == null)
+            {
+                break;
+            }
+
+            string time = score.Split(new string[] { "\\" }, StringSplitOptions.None)[1];
+            
+            Debug.Log("Test: " + count + " - " + getHundrethsFromString(time));
+        }
+        file.Close();
+
         return 1;
     }
 
@@ -186,5 +207,17 @@ public class Highscore : MonoBehaviour {
         int hundredths = Mathf.FloorToInt((time * 100) % 100);
 
         return string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, hundredths);
+    }
+
+    public int getHundrethsFromString(string time)
+    {
+        int timeInHundreths = 0;
+        string[] timeParts = time.Split(':');
+
+        timeInHundreths = Int32.Parse(timeParts[0]) * 60 * 100;
+        timeInHundreths += Int32.Parse(timeParts[1]) * 100;
+        timeInHundreths += Int32.Parse(timeParts[2]);
+        
+        return timeInHundreths;
     }
 }

@@ -1125,7 +1125,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press space to submit
+  m_Text: Press return to submit
 --- !u!222 &1232463504
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1897,13 +1897,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1834684419}
   m_TextComponent: {fileID: 160358390}
   m_Placeholder: {fileID: 733428531}
-  m_ContentType: 4
+  m_ContentType: 0
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 1
+  m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 3
+  m_CharacterValidation: 0
   m_CharacterLimit: 3
   m_OnEndEdit:
     m_PersistentCalls:
