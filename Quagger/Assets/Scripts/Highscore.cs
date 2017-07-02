@@ -16,6 +16,7 @@ public class Highscore : MonoBehaviour {
     public Text _8;
     public Text _9;
 
+    public GameObject inputui;
     public InputField input;
 
     private bool cleared;
@@ -25,12 +26,14 @@ public class Highscore : MonoBehaviour {
     private int rank;
     private string name;
 
+    private static string highfile = "highscore.txt";
+
 	// Use this for initialization
 	void Start () {
-        if (!File.Exists("highscore"))
+        if (!File.Exists(highfile))
         {
             Debug.Log("Creating highscore file");
-            StreamWriter temp = File.CreateText("highscore");
+            StreamWriter temp = File.CreateText(highfile);
             temp.Close();
         }
 
@@ -38,6 +41,7 @@ public class Highscore : MonoBehaviour {
 
         if (cleared)
         {
+            PlayerPrefs.SetInt("Cleared",0);
             time = PlayerPrefs.GetFloat("Time");
             kills = PlayerPrefs.GetInt("KillCount");
             continues = PlayerPrefs.GetInt("ContinueCount");
@@ -55,18 +59,22 @@ public class Highscore : MonoBehaviour {
 
     void Update()
     {
-        if (input.isFocused)
+        if (cleared && Input.GetKeyDown(KeyCode.Return))
         {
-            if (Input.GetKeyUp(KeyCode.Return))
-            {
-                input.DeactivateInputField();
-                name = input.text;
-                input.text = "ABC";
-                input.enabled = false;
+            name = input.text;
+            if (name == "")
+                name = "___";
+            else
+                name = name.PadRight(3, ' ');
+            Debug.Log(name);
+            input.text = "ABC";
+            input.DeactivateInputField();
+            input.enabled = false;
+            inputui.SetActive(false);
 
-                writeHighscore();
-                showLeaderboard();
-            }
+            writeHighscore();
+            showLeaderboard();
+            cleared = false;
         }
     }
 
@@ -78,17 +86,19 @@ public class Highscore : MonoBehaviour {
 
     private void enterHighscore()
     {
+        inputui.SetActive(true);
         input.enabled = true;
         input.ActivateInputField();
+        input.interactable = true;
     }
 
     private void showLeaderboard()
     {
-        StreamReader file = File.OpenText("highscore");
+        StreamReader file = File.OpenText(highfile);
         int count = 0;
         string l = file.ReadLine();
 
-        while (count++ <= 9)
+        while (count++ < 9)
         {
             getLabel(count).text = l;
 
@@ -99,34 +109,42 @@ public class Highscore : MonoBehaviour {
 
     private void writeHighscore()
     {
-        StreamReader file = File.OpenText("highscore");
+        StreamReader file = File.OpenText(highfile);
         int count = 0;
         string l = file.ReadLine();
 
-        while (count++ <= 9)
+        while (count++ < 9)
         {
             if (count == rank)
-                getLabel(count).text = scoreToText();
-            else
             { 
-                getLabel(count).text = l;
+                getLabel(count).text = scoreToText();
+                /*if (l == null || l.Length == 0)
+                    break;
+                count++;
+                getLabel(count).text = "" + count + l.Substring(1);*/
+            }
+            else
+            {
+                if (l == null || l.Length == 0)
+                    break;
+                getLabel(count).text = "" + count + l.Substring(1);
 
                 l = file.ReadLine();
             }
         }
         file.Close();
 
-        StreamWriter filew = File.CreateText("highscore");
+        StreamWriter filew = File.CreateText(highfile);
 
-        filew.WriteLine(_1);
-        filew.WriteLine(_2);
-        filew.WriteLine(_3);
-        filew.WriteLine(_4);
-        filew.WriteLine(_5);
-        filew.WriteLine(_6);
-        filew.WriteLine(_7);
-        filew.WriteLine(_8);
-        filew.WriteLine(_9);
+        filew.WriteLine(_1.text);
+        filew.WriteLine(_2.text);
+        filew.WriteLine(_3.text);
+        filew.WriteLine(_4.text);
+        filew.WriteLine(_5.text);
+        filew.WriteLine(_6.text);
+        filew.WriteLine(_7.text);
+        filew.WriteLine(_8.text);
+        filew.WriteLine(_9.text);
 
         filew.Close();
     }
