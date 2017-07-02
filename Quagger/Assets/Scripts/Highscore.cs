@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Highscore : MonoBehaviour {
 
     public Text _1;
@@ -20,6 +21,7 @@ public class Highscore : MonoBehaviour {
 
     public GameObject inputui;
     public InputField input;
+    public GameObject start;
 
     private bool cleared;
     private float time;
@@ -43,6 +45,7 @@ public class Highscore : MonoBehaviour {
 
         if (cleared)
         {
+            start.SetActive(false);
             PlayerPrefs.SetInt("Cleared",0);
             time = PlayerPrefs.GetFloat("Time");
             kills = PlayerPrefs.GetInt("KillCount");
@@ -61,7 +64,7 @@ public class Highscore : MonoBehaviour {
 
     void Update()
     {
-        if (cleared && Input.GetKeyDown(KeyCode.Return))
+        if (cleared && Input.GetButtonUp("Submit"))
         {
             name = input.text;
             if (name == "")
@@ -77,6 +80,7 @@ public class Highscore : MonoBehaviour {
             writeHighscore();
             showLeaderboard();
             cleared = false;
+            start.SetActive(true);
         }
     }
 
