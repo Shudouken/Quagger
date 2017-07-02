@@ -19,7 +19,12 @@ public class BGM : MonoBehaviour {
         SceneManager.activeSceneChanged += changeSound;
 	}
 
-    private void changeSound(Scene previousScene, Scene newScene)
+    void OnDestroy()
+    {
+        SceneManager.activeSceneChanged -= changeSound;
+    }
+
+        private void changeSound(Scene previousScene, Scene newScene)
     {
         bgm.loop = true;
         StopAllCoroutines();
