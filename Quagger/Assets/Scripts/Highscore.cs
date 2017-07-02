@@ -90,8 +90,8 @@ public class Highscore : MonoBehaviour {
         StreamReader file = File.OpenText(highfile);
         int count = 0;
         string l = file.ReadLine();
+        int rank = 11;
         
-
         while (count++ < 9)
         {
             string score = file.ReadLine();
@@ -100,13 +100,19 @@ public class Highscore : MonoBehaviour {
                 break;
             }
 
-            string time = score.Split(new string[] { "\\" }, StringSplitOptions.None)[1];
+            string rankTime = score.Split(new string[] { "\\" }, StringSplitOptions.None)[1];
+            float compareTime = getSecondsFromString(rankTime);
             
-            Debug.Log("Test: " + count + " - " + getHundrethsFromString(time));
+            if (time < compareTime)
+            {
+                rank = count + 1;
+                break;
+            }
+
         }
         file.Close();
 
-        return 1;
+        return rank;
     }
 
     private void enterHighscore()
@@ -207,14 +213,14 @@ public class Highscore : MonoBehaviour {
         return string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, hundredths);
     }
 
-    public int getHundrethsFromString(string time)
+    public float getSecondsFromString(string time)
     {
-        int timeInHundreths = 0;
+        float timeInHundreths = 0;
         string[] timeParts = time.Split(':');
-
-        timeInHundreths = Int32.Parse(timeParts[0]) * 60 * 100;
-        timeInHundreths += Int32.Parse(timeParts[1]) * 100;
-        timeInHundreths += Int32.Parse(timeParts[2]);
+        
+        timeInHundreths = float.Parse(timeParts[0]) * 60;
+        timeInHundreths += float.Parse(timeParts[1]);
+        timeInHundreths += float.Parse(timeParts[2]) / 100;
         
         return timeInHundreths;
     }
