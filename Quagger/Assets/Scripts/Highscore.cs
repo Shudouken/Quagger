@@ -38,6 +38,8 @@ public class Highscore : MonoBehaviour {
         {
             Debug.Log("Creating highscore file");
             StreamWriter temp = File.CreateText(highfile);
+            for (int i = 1; i <= 9; i++)
+                temp.WriteLine(scoreToText(i,"___",0,0,0));
             temp.Close();
         }
 
@@ -133,6 +135,8 @@ public class Highscore : MonoBehaviour {
 
         while (count++ < 9)
         {
+            if (l == null || l.Length == 0)
+                break;
             getLabel(count).text = l;
 
             l = file.ReadLine();
@@ -204,6 +208,14 @@ public class Highscore : MonoBehaviour {
 
         return "" + rank + "." + name + "  \\  " + displayTime(time) + "  \\    " +
             kills.ToString().PadLeft(3, '0') + "     \\    " + continues.ToString().PadLeft(3, '0');
+    }
+
+    public string scoreToText(int r, string n, float t, int k, int c)
+    {
+        //1.ASH  \  99:99:99  \    999     \    999
+
+        return "" + r + "." + n + "  \\  " + displayTime(t) + "  \\    " +
+            k.ToString().PadLeft(3, '0') + "     \\    " + c.ToString().PadLeft(3, '0');
     }
 
     public string displayTime(float time)
