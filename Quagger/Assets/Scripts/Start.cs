@@ -11,6 +11,7 @@ public class Start : MonoBehaviour {
 
             PlayerPrefs.SetInt("KillCount", 0);
             PlayerPrefs.SetInt("ContinueCount", 0);
+            PlayerPrefs.SetInt("ResetTime", 1);
         }
 
         if (Input.GetButtonUp("Select"))
