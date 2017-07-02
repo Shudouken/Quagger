@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Highscore : MonoBehaviour {
 
+    public Text _0;
     public Text _1;
     public Text _2;
     public Text _3;
@@ -53,7 +53,9 @@ public class Highscore : MonoBehaviour {
             rank = calcuateRank();
 
             if (rank != 0)
-            { 
+            {
+                name = "you";
+                _0.text = scoreToText();
                 enterHighscore();
                 return;
             }
@@ -64,7 +66,7 @@ public class Highscore : MonoBehaviour {
 
     void Update()
     {
-        if (cleared && Input.GetButtonUp("Submit"))
+        if (cleared && Input.GetKeyUp(KeyCode.Return))
         {
             name = input.text;
             if (name == "")
