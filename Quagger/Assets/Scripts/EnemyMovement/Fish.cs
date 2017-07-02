@@ -8,6 +8,7 @@ public class Fish : MonoBehaviour {
     Rigidbody2D rigid;
     float speed = 1;
     FishSpawner fishSpawner;
+    RowSpawner spawner;
     bool facingLeft = true;
 
     private void Awake()
@@ -22,6 +23,13 @@ public class Fish : MonoBehaviour {
         facingLeft = left;
     }
 
+    public void Construct(float speed, RowSpawner spawner, bool left)
+    {
+        this.speed = speed;
+        this.spawner = spawner;
+        facingLeft = left;
+    }
+
     void FixedUpdate () {
         Vector2 oldPos = rigid.position;
         if (facingLeft)
@@ -29,7 +37,15 @@ public class Fish : MonoBehaviour {
             oldPos.x -= speed;
             if(oldPos.x <= -20)
             {
-                fishSpawner.fishOutOfBoard.Add(gameObject);
+                if(fishSpawner != null)
+                {
+                    fishSpawner.fishOutOfBoard.Add(gameObject);
+                }
+                //fishSpawner.fishOutOfBoard.Add(gameObject);
+                if (spawner != null)
+                {
+                    spawner.fishOutOfBoard.Add(gameObject);
+                }
                 gameObject.SetActive(false);
             }
         }
@@ -38,7 +54,15 @@ public class Fish : MonoBehaviour {
             oldPos.x += speed;
             if (oldPos.x >= 20)
             {
-                fishSpawner.fishOutOfBoard.Add(gameObject);
+                if (fishSpawner != null)
+                {
+                    fishSpawner.fishOutOfBoard.Add(gameObject);
+                }
+                //fishSpawner.fishOutOfBoard.Add(gameObject);
+                if (spawner != null)
+                {
+                    spawner.fishOutOfBoard.Add(gameObject);
+                }
                 gameObject.SetActive(false);
             }
         }
