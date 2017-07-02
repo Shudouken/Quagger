@@ -243,7 +243,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: beee6a7df2df50a4985ca003257bbe94, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
@@ -708,7 +708,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: beee6a7df2df50a4985ca003257bbe94, type: 3}
     m_FontSize: 80
     m_FontStyle: 2
     m_BestFit: 0
@@ -1536,7 +1536,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 110}
+  m_SizeDelta: {x: 300, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1834684418
 MonoBehaviour:
@@ -1576,13 +1576,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1834684419}
   m_TextComponent: {fileID: 160358390}
   m_Placeholder: {fileID: 733428531}
-  m_ContentType: 5
+  m_ContentType: 4
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 1
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 4
+  m_CharacterValidation: 3
   m_CharacterLimit: 3
   m_OnEndEdit:
     m_PersistentCalls:
@@ -1828,6 +1828,7 @@ MonoBehaviour:
   _9: {fileID: 435071092}
   inputui: {fileID: 1834684416}
   input: {fileID: 1834684418}
+  start: {fileID: 1710696311}
 --- !u!1 &2137025827
 GameObject:
   m_ObjectHideFlags: 0
