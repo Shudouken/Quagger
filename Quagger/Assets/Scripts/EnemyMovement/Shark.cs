@@ -26,7 +26,8 @@ public class Shark : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, nextWaypoint.transform.position, step);
 
         transform.rotation = Quaternion.Lerp(transform.rotation, nextWaypoint.transform.rotation, step);
-        
+        transform.localScale = nextWaypoint.transform.localScale;
+
         if (transform.position.Equals(nextWaypoint.transform.position))
         {
             actualIndex++;
