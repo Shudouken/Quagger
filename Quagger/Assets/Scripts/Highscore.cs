@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Highscore : MonoBehaviour {
 
+    public Text _0;
     public Text _1;
     public Text _2;
     public Text _3;
@@ -50,7 +51,9 @@ public class Highscore : MonoBehaviour {
             rank = calcuateRank();
 
             if (rank != 0)
-            { 
+            {
+                name = "you";
+                _0.text = scoreToText();
                 enterHighscore();
                 return;
             }
