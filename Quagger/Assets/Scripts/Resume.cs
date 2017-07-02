@@ -15,6 +15,7 @@ public class Resume : MonoBehaviour {
         if(Input.GetButtonUp("Cancel"))
         {
             SceneManager.LoadScene("Title");
+            Destroy(GameObject.Find("BGM"));
         }
 	}
 }
