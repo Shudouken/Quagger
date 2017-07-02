@@ -11,5 +11,10 @@ public class Resume : MonoBehaviour {
 
             PlayerPrefs.SetInt("ContinueCount", PlayerPrefs.GetInt("ContinueCount")+1);
         }
+
+        if(Input.GetButtonUp("Cancel"))
+        {
+            SceneManager.LoadScene("Title");
+        }
 	}
 }
