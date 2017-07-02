@@ -64,6 +64,8 @@ public class Highscore : MonoBehaviour {
         }
 
         showLeaderboard();
+        cleared = false;
+        start.SetActive(true);
     }
 
     void Update()
