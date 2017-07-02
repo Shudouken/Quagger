@@ -16,9 +16,15 @@ public class Start : MonoBehaviour {
         if (Input.GetButtonUp("Select"))
         {
             if(SceneManager.GetActiveScene().buildIndex == 5)
+            {
+                PlayerPrefs.SetInt("Cleared",1);
                 SceneManager.LoadScene("Highscore");
-            if(SceneManager.GetActiveScene().buildIndex == 0)
-                SceneManager.LoadScene("Leaderboard");
+            }
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                PlayerPrefs.SetInt("Cleared", 0);
+                SceneManager.LoadScene("Highscore");
+            }
         }
 
 	}

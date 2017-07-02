@@ -42,8 +42,11 @@ public class Player : MonoBehaviour {
         if(SceneManager.GetActiveScene().buildIndex != 5)
             PlayerSingleton.getInstance().incrementTimer(Time.deltaTime);
         else
+        {
+            PlayerPrefs.SetFloat("Time", PlayerSingleton.getInstance().time);
             PlayerPrefs.SetInt("ResetTime", 1);
-            
+        }
+
         timer.text = PlayerSingleton.getInstance().displayTime();
         hearts.text = new System.String('l', PlayerSingleton.getInstance().hearts);
 
