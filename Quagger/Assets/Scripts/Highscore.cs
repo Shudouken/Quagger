@@ -39,7 +39,7 @@ public class Highscore : MonoBehaviour {
             Debug.Log("Creating highscore file");
             StreamWriter temp = File.CreateText(highfile);
             for (int i = 1; i <= 9; i++)
-                temp.WriteLine(scoreToText(i,"___",0,0,0));
+                temp.WriteLine(scoreToText(i,"___",5999.99f,999,999));
             temp.Close();
         }
 
